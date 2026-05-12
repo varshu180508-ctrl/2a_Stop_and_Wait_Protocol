@@ -8,7 +8,100 @@ To write a python program to perform stop and wait protocol
 4. To send frames to server from the client side.
 5. If your frames reach the server it will send ACK signal to client
 6. Stop the Program
+
+   
 ## PROGRAM
+
+server
+
+
+
+server.py
+
+import socket
+
+server = socket.socket()
+
+server.bind(('localhost', 8000))
+
+server.listen(1)
+
+print("Server is listening...")
+
+conn, addr = server.accept()
+
+print(f"Connected with {addr}")
+
+while True:
+    data = conn.recv(1024).decode()
+
+    if data:
+    
+        print(f"Received: {data}")
+        
+        conn.send("ACK".encode())
+
+        if data.lower() == 'exit': 
+        
+            print("stop and wait protocol implemented successfully")
+            
+            conn.close()
+            
+            break
+
+
+
+client
+
+
+
+client.py
+
+import socket
+
+import time
+
+client = socket.socket()
+
+client.connect(('localhost', 8000))
+
+client.settimeout(5)  
+
+while True:
+
+    msg = input("Enter a message (or type 'exit' to quit): ")
+    
+    client.send(msg.encode())  
+    
+    if msg.lower() == 'exit':
+    
+        print("Connection closed by client")
+        
+        client.close()
+        
+        break
+        
+    try:
+    
+        ack = client.recv(1024).decode()
+        
+        if ack == "ACK":
+        
+            print(f"Server acknowledged: {ack}")
+            
+    except socket.timeout:
+    
+        print("No ACK received, retransmitting...")
+        
+        continue
 ## OUTPUT
+
+server
+<img width="930" height="149" alt="cn 2 a" src="https://github.com/user-attachments/assets/eaab4c9a-65bd-416d-8970-635315968d3b" />
+
+client 
+<img width="932" height="155" alt="cn 2 a 2" src="https://github.com/user-attachments/assets/24744b4b-0756-4a13-b805-903692434b66" />
+
+
 ## RESULT
 Thus, python program to perform stop and wait protocol was successfully executed.
