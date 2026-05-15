@@ -98,10 +98,15 @@ while True:
 ## OUTPUT
 
 server
-<img width="930" height="149" alt="cn 2 a" src="https://github.com/user-attachments/assets/eaab4c9a-65bd-416d-8970-635315968d3b" />
+
+
+<img width="1920" height="845" alt="Screenshot (156)" src="https://github.com/user-attachments/assets/e93b6aee-73ef-4201-b1c7-27c61be5ba45" />
+
 
 client 
-<img width="932" height="155" alt="cn 2 a 2" src="https://github.com/user-attachments/assets/24744b4b-0756-4a13-b805-903692434b66" />
+
+
+<img width="1920" height="969" alt="Screenshot (157)" src="https://github.com/user-attachments/assets/f8bf084f-8931-490e-bb68-95ca89ca83ca" />
 
 
 ## RESULT
